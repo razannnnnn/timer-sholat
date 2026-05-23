@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #030d1a;
+  --foreground: #f8fafc;
+  --gold: #d4af37;
+  --gold-light: #ffd97d;
+  --sky: #00aeef;
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.font-arabic {
+  font-family: var(--font-arabic), serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background: #030d1a;
+  color: #f8fafc;
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Islamic geometric ornament (SVG background) */
+.bg-ornament {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='rgba(212,175,55,0.03)' stroke-width='0.5'%3E%3Cpolygon points='30,3 39,21 57,21 42,33 48,51 30,40 12,51 18,33 3,21 21,21'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Premium Glass Cards */
+.glass {
+  background: rgba(11, 28, 51, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass:hover {
+  background: rgba(11, 28, 51, 0.55);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.glass-active {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(3, 13, 26, 0.6) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow:
+    0 15px 35px rgba(212, 175, 55, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  animation: pulse-glow-border 3s ease-in-out infinite alternate;
+}
+
+/* Text Shimmer Gold */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #d4af37 0%,
+    #ffd97d 40%,
+    #d4af37 60%,
+    #ffd97d 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Animated Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.3),
+    rgba(0, 174, 239, 0.3),
+    transparent
+  );
+}
+
+/* Mihrab Arch Frame styling */
+.mihrab-arch {
+  clip-path: polygon(0% 100%, 0% 15%, 10% 7%, 25% 2%, 50% 0%, 75% 2%, 90% 7%, 100% 15%, 100% 100%);
+}
+
+.mihrab-border {
+  position: relative;
+}
+.mihrab-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+/* Animations */
+@keyframes pulse-glow-border {
+  0% {
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+  }
+  100% {
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
+  }
+}
+
+@keyframes sway {
+  0% { transform: rotate(-3deg); }
+  100% { transform: rotate(3deg); }
+}
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-sway {
+  animation: sway 6s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Custom scrollbar for admin */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #030d1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #19376d;
+  border-radius: 3px;
+}
+
+.admin-input {
+  @apply w-full px-4 py-2.5 rounded-xl text-sm text-white bg-navy-900
+         border border-white/10 focus:border-sky focus:outline-none
+         transition-colors placeholder:text-slate-600;
+  background-color: #0b2447;
+}
