@@ -22,7 +22,10 @@ const IQOMAH = {
 const ANNOUNCEMENTS = [
   { text: "Mohon luruskan dan rapatkan shaf.", active: true },
   { text: "Kajian rutin ba'da Maghrib setiap malam Jumat.", active: true },
-  { text: "Penyaluran Zakat Maal Triwulan — Ahad, 24 Mei 2026.", active: false },
+  {
+    text: "Penyaluran Zakat Maal Triwulan — Ahad, 24 Mei 2026.",
+    active: false,
+  },
 ];
 
 // ── Helpers ──
@@ -61,9 +64,7 @@ function StatCard({ icon, label, value, sub, color, delay = 0 }) {
           {label}
         </p>
         <p className="text-xl font-semibold text-white leading-none">{value}</p>
-        {sub && (
-          <p className="text-[11px] text-slate-500 mt-1.5">{sub}</p>
-        )}
+        {sub && <p className="text-[11px] text-slate-500 mt-1.5">{sub}</p>}
       </div>
     </motion.div>
   );
@@ -89,7 +90,16 @@ function QuickAction({ href, icon, label, desc, delay = 0 }) {
           <p className="text-sm text-slate-200 font-medium">{label}</p>
           <p className="text-[11px] text-slate-500 mt-0.5">{desc}</p>
         </div>
-        <svg className="w-4 h-4 text-slate-600 ml-auto flex-shrink-0 group-hover:text-sky transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M9 18l6-6-6-6" /></svg>
+        <svg
+          className="w-4 h-4 text-slate-600 ml-auto flex-shrink-0 group-hover:text-sky transition-colors"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        >
+          <path d="M9 18l6-6-6-6" />
+        </svg>
       </Link>
     </motion.div>
   );
@@ -109,7 +119,7 @@ export default function AdminDashboard() {
   });
 
   return (
-    <div className="max-w-[1100px]">
+    <div className="w-full">
       {/* ── HEADER ── */}
       <div className="mb-8">
         <h1 className="text-2xl font-semibold text-white tracking-tight">
@@ -129,8 +139,18 @@ export default function AdminDashboard() {
           value="EQuran.id"
           sub="Sinkronisasi terakhir hari ini"
           icon={
-            <svg className="w-5 h-5 text-sky" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="9" /><ellipse cx="12" cy="12" rx="4" ry="9" /><line x1="3" y1="12" x2="21" y2="12" />
+            <svg
+              className="w-5 h-5 text-sky"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <ellipse cx="12" cy="12" rx="4" ry="9" />
+              <line x1="3" y1="12" x2="21" y2="12" />
             </svg>
           }
         />
@@ -141,8 +161,19 @@ export default function AdminDashboard() {
           value="Mei 2026"
           sub="Berlaku s/d 31 Mei 2026"
           icon={
-            <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
+            <svg
+              className="w-5 h-5 text-gold"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
           }
         />
@@ -153,8 +184,17 @@ export default function AdminDashboard() {
           value={`${activeAnnouncements} Aktif`}
           sub={`dari ${ANNOUNCEMENTS.length} total pengumuman`}
           icon={
-            <svg className="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z" /><path d="M22 6l-10 7L2 6" />
+            <svg
+              className="w-5 h-5 text-emerald-400"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z" />
+              <path d="M22 6l-10 7L2 6" />
             </svg>
           }
         />
@@ -165,8 +205,17 @@ export default function AdminDashboard() {
           value="Aktif"
           sub="Suhu 29°C · Kelembapan 68%"
           icon={
-            <svg className="w-5 h-5 text-sky" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="7" r="4" /><path d="M5.5 19a4.5 4.5 0 0 1 0-9h.5A5 5 0 0 1 17 13h.5a3.5 3.5 0 0 1 0 7H6" />
+            <svg
+              className="w-5 h-5 text-sky"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="7" r="4" />
+              <path d="M5.5 19a4.5 4.5 0 0 1 0-9h.5A5 5 0 0 1 17 13h.5a3.5 3.5 0 0 1 0 7H6" />
             </svg>
           }
         />
@@ -174,7 +223,6 @@ export default function AdminDashboard() {
 
       {/* ── MAIN CONTENT GRID: Prayer Table + Announcements ── */}
       <div className="grid grid-cols-5 gap-6 mb-8">
-        
         {/* Prayer Times Table — 3 cols */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -185,8 +233,12 @@ export default function AdminDashboard() {
         >
           <div className="px-5 py-4 border-b border-white/5 flex items-center justify-between">
             <div>
-              <h2 className="text-sm font-semibold text-white">Jadwal Sholat Hari Ini</h2>
-              <p className="text-[11px] text-slate-500 mt-0.5">Sumber: EQuran.id</p>
+              <h2 className="text-sm font-semibold text-white">
+                Jadwal Sholat Hari Ini
+              </h2>
+              <p className="text-[11px] text-slate-500 mt-0.5">
+                Sumber: EQuran.id
+              </p>
             </div>
             <Link
               href="/admin/api-settings"
@@ -198,10 +250,18 @@ export default function AdminDashboard() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-white/5">
-                <th className="text-[11px] text-slate-500 uppercase tracking-wider font-medium text-left px-5 py-2.5">Waktu Sholat</th>
-                <th className="text-[11px] text-slate-500 uppercase tracking-wider font-medium text-left px-5 py-2.5">Adzan</th>
-                <th className="text-[11px] text-slate-500 uppercase tracking-wider font-medium text-left px-5 py-2.5">Iqomah</th>
-                <th className="text-[11px] text-slate-500 uppercase tracking-wider font-medium text-left px-5 py-2.5">Durasi</th>
+                <th className="text-[11px] text-slate-500 uppercase tracking-wider font-medium text-left px-5 py-2.5">
+                  Waktu Sholat
+                </th>
+                <th className="text-[11px] text-slate-500 uppercase tracking-wider font-medium text-left px-5 py-2.5">
+                  Adzan
+                </th>
+                <th className="text-[11px] text-slate-500 uppercase tracking-wider font-medium text-left px-5 py-2.5">
+                  Iqomah
+                </th>
+                <th className="text-[11px] text-slate-500 uppercase tracking-wider font-medium text-left px-5 py-2.5">
+                  Durasi
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -210,11 +270,17 @@ export default function AdminDashboard() {
                 return (
                   <tr
                     key={key}
-                    className={`border-b border-white/[0.03] transition-colors hover:bg-white/[0.02] ${i === Object.keys(PRAYER_TIMES).length - 1 ? 'border-none' : ''}`}
+                    className={`border-b border-white/[0.03] transition-colors hover:bg-white/[0.02] ${i === Object.keys(PRAYER_TIMES).length - 1 ? "border-none" : ""}`}
                   >
-                    <td className="px-5 py-3 text-sm text-slate-200 font-medium">{PRAYER_LABELS[key]}</td>
-                    <td className="px-5 py-3 text-sm text-white font-mono">{time}</td>
-                    <td className="px-5 py-3 text-sm text-white font-mono">{addMinutes(time, iqMin)}</td>
+                    <td className="px-5 py-3 text-sm text-slate-200 font-medium">
+                      {PRAYER_LABELS[key]}
+                    </td>
+                    <td className="px-5 py-3 text-sm text-white font-mono">
+                      {time}
+                    </td>
+                    <td className="px-5 py-3 text-sm text-white font-mono">
+                      {addMinutes(time, iqMin)}
+                    </td>
                     <td className="px-5 py-3">
                       <span className="inline-flex items-center gap-1 text-[11px] text-slate-400 bg-white/5 px-2 py-0.5 rounded-md font-mono">
                         +{iqMin} mnt
@@ -236,7 +302,9 @@ export default function AdminDashboard() {
           style={{ background: "rgba(11,28,51,0.45)" }}
         >
           <div className="px-5 py-4 border-b border-white/5 flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-white">Pengumuman Aktif</h2>
+            <h2 className="text-sm font-semibold text-white">
+              Pengumuman Aktif
+            </h2>
             <Link
               href="/admin/announcements"
               className="text-[11px] text-sky hover:text-sky/80 transition-colors font-medium"
@@ -247,12 +315,18 @@ export default function AdminDashboard() {
           <div className="flex-1 divide-y divide-white/[0.04]">
             {ANNOUNCEMENTS.map((ann, i) => (
               <div key={i} className="px-5 py-3.5 flex items-start gap-3">
-                <div className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${ann.active ? 'bg-emerald-400' : 'bg-slate-600'}`} />
+                <div
+                  className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${ann.active ? "bg-emerald-400" : "bg-slate-600"}`}
+                />
                 <div className="min-w-0">
-                  <p className={`text-sm leading-relaxed ${ann.active ? 'text-slate-200' : 'text-slate-500 line-through'}`}>
+                  <p
+                    className={`text-sm leading-relaxed ${ann.active ? "text-slate-200" : "text-slate-500 line-through"}`}
+                  >
                     {ann.text}
                   </p>
-                  <span className={`text-[10px] font-medium mt-1 inline-block ${ann.active ? 'text-emerald-400' : 'text-slate-600'}`}>
+                  <span
+                    className={`text-[10px] font-medium mt-1 inline-block ${ann.active ? "text-emerald-400" : "text-slate-600"}`}
+                  >
                     {ann.active ? "Ditampilkan" : "Nonaktif"}
                   </span>
                 </div>
@@ -274,8 +348,18 @@ export default function AdminDashboard() {
             label="Pengaturan Masjid"
             desc="Nama, alamat, timezone"
             icon={
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="3" /><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
               </svg>
             }
           />
@@ -285,8 +369,19 @@ export default function AdminDashboard() {
             label="API & Lokasi"
             desc="Sumber data jadwal sholat"
             icon={
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="9" /><ellipse cx="12" cy="12" rx="4" ry="9" /><line x1="3" y1="12" x2="21" y2="12" />
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <ellipse cx="12" cy="12" rx="4" ry="9" />
+                <line x1="3" y1="12" x2="21" y2="12" />
               </svg>
             }
           />
@@ -296,8 +391,19 @@ export default function AdminDashboard() {
             label="Durasi Iqomah"
             desc="Atur jeda adzan ke iqomah"
             icon={
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="13" r="9" /><path d="M12 8v5l3.5 2" /><path d="M9 2h6" />
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="13" r="9" />
+                <path d="M12 8v5l3.5 2" />
+                <path d="M9 2h6" />
               </svg>
             }
           />
@@ -307,8 +413,18 @@ export default function AdminDashboard() {
             label="Pengumuman"
             desc="Kelola teks berjalan"
             icon={
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z" /><path d="M22 6l-10 7L2 6" />
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z" />
+                <path d="M22 6l-10 7L2 6" />
               </svg>
             }
           />
@@ -318,8 +434,18 @@ export default function AdminDashboard() {
             label="Widget Cuaca"
             desc="Suhu, kelembapan, kiblat"
             icon={
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="7" r="4" /><path d="M5.5 19a4.5 4.5 0 0 1 0-9h.5A5 5 0 0 1 17 13h.5a3.5 3.5 0 0 1 0 7H6" />
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="7" r="4" />
+                <path d="M5.5 19a4.5 4.5 0 0 1 0-9h.5A5 5 0 0 1 17 13h.5a3.5 3.5 0 0 1 0 7H6" />
               </svg>
             }
           />
@@ -329,8 +455,19 @@ export default function AdminDashboard() {
             label="Lihat Display"
             desc="Buka tampilan monitor sholat"
             icon={
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
               </svg>
             }
           />
